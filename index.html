@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Footprint Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Carbon Footprint Calculator</h1>
+        <nav>
+            <button class="tablink active" onclick="openTab(event, 'about')">About</button>
+            <button class="tablink" onclick="openTab(event, 'calculate')">Calculate</button>
+            <button class="tablink" onclick="openTab(event, 'contact')">Contact</button>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div id="about" class="tabcontent">
+            <h2>About Carbon Footprint</h2>
+            <p>Carbon footprint refers to the total amount of greenhouse gases emitted into the atmosphere by an individual, organization, event, or product. It is usually measured in terms of carbon dioxide equivalent (CO2e) and includes emissions from energy use, transportation, and other activities.</p>
+            <p>The goal of this calculator is to help you understand your personal carbon footprint and find ways to reduce it. <strong>Click on the "Calculate" tab to estimate your carbon footprint.</strong></p>
+        </div>
+
+        <div id="calculate" class="tabcontent">
+            <h2>Calculate Your Carbon Footprint</h2>
+            <form id="footprintForm">
+                <fieldset>
+                    <legend>Electricity Usage</legend>
+                    <div class="form-group">
+                        <label for="acCount">Number of Air Conditioners:</label>
+                        <input type="number" id="acCount" name="acCount">
+                    </div>
+                    <div class="form-group">
+                        <label for="acHours">Air Conditioner (hours per day):</label>
+                        <input type="number" id="acHours" name="acHours">
+                    </div>
+                    <div class="form-group">
+                        <label for="fanCount">Number of Fans:</label>
+                        <input type="number" id="fanCount" name="fanCount">
+                    </div>
+                    <div class="form-group">
+                        <label for="fanHours">Fans (hours per day):</label>
+                        <input type="number" id="fanHours" name="fanHours">
+                    </div>
+                    <div class="form-group">
+                        <label for="lightCount">Number of Lights:</label>
+                        <input type="number" id="lightCount" name="lightCount">
+                    </div>
+                    <div class="form-group">
+                        <label for="lightHours">Lights (hours per day):</label>
+                        <input type="number" id="lightHours" name="lightHours">
+                    </div>
+                    <div class="form-group">
+                        <label for="tvHours">TV (hours per day):</label>
+                        <input type="number" id="tvHours" name="tvHours">
+                    </div>
+                    <div class="form-group">
+                        <label for="wifiHours">Wi-Fi Router (hours per day):</label>
+                        <input type="number" id="wifiHours" name="wifiHours">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Transportation</legend>
+                    <div class="form-group">
+                        <label for="carKm">Car travel (km per day):</label>
+                        <input type="number" id="carKm" name="carKm">
+                    </div>
+                    <div class="form-group">
+                        <label for="carRiders">Number of riders in car:</label>
+                        <input type="number" id="carRiders" name="carRiders">
+                    </div>
+                    <div class="form-group">
+                        <label for="schoolBusKm">School bus travel (km per day):</label>
+                        <input type="number" id="schoolBusKm" name="schoolBusKm">
+                    </div>
+                    <div class="form-group">
+                        <label for="bikeKm">Bike or scooter travel (km per day):</label>
+                        <input type="number" id="bikeKm" name="bikeKm">
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend>Plants</legend>
+                    <div class="form-group">
+                        <label for="plantCount">Number of Plants:</label>
+                        <input type="number" id="plantCount" name="plantCount">
+                    </div>
+                </fieldset>
+                <button type="button" onclick="calculateFootprint()">Calculate</button>
+            </form>
+
+            <div id="result">
+                <h2>Your Carbon Footprint:</h2>
+                <p id="footprintValueDaily">Daily: 0 kg CO2</p>
+                <p id="footprintValueMonthly">Monthly: 0 kg CO2</p>
+                <p id="footprintValueYearly">Yearly: 0 kg CO2</p>
+                <p id="message"></p>
+                <canvas id="footprintChart" width="400" height="200"></canvas>
+            </div>
+        </div>
+
+        <div id="contact" class="tabcontent">
+            <h2>Contact Us</h2>
+            <p>If you have any questions or feedback, please reach out to us:</p>
+            <p>Email: <a href="mailto:support@example.com">support@example.com</a></p>
+            <p>Phone: 123-456-7890</p>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
